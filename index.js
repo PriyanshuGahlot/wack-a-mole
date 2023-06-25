@@ -1,12 +1,15 @@
 const tds = document.querySelectorAll('td');
 tds.forEach(td => td.addEventListener('click', () => {
     if(td.classList.contains('mole')){
-        console.log('hit');
+        score++;
+        scoreText.textContent = score;
         td.classList.remove('mole');
     }
 }));
 addMole();
 
+let score = 0;
+const scoreText = document.getElementById('score');
 
 function addMole(){
     const random = Math.floor(Math.random() * 8);
@@ -14,5 +17,5 @@ function addMole(){
     setTimeout(()=>{
         tds[random].classList.remove('mole');
         addMole();
-    },3000);
+    },2000);
 }
