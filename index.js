@@ -31,6 +31,7 @@ function addMole(){
                     score = 0;
                     scoreText.textContent = "score: 0";
                     strikeText.textContent = "strike: 0";
+                    alert('Game Over');
                 },1000);
             }
         }
