@@ -9,6 +9,8 @@ tds.forEach(td => td.addEventListener('click', () => {
     }
 }));
 
+let spawnTime = 3000;
+
 addMole();
 
 let strike = 0;
@@ -27,14 +29,17 @@ function addMole(){
             strikeText.textContent = "strike: "+strike;
             if(strike === 3){
                 setTimeout(()=>{
-                    strike = 0;
-                    score = 0;
                     scoreText.textContent = "score: 0";
                     strikeText.textContent = "strike: 0";
-                    alert('Game Over');
+                    alert('Game Over. Your score is '+score);
+                    strike = 0;
+                    score = 0;
                 },1000);
             }
         }
+        if(spawnTime > 700){
+            spawnTime -= 100;
+        }
         addMole();
-    },3000);
+    },spawnTime);
 }
